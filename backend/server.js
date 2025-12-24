@@ -15,7 +15,7 @@ const { generateImageOpenAI, editImageOpenAI } = require('./generators/openai-im
 const { composeVideo, concatAudioUrls, concatVideoUrls } = require('./generators/ffmpeg');
 
 const HISTORY_FILE = path.join(__dirname, 'workflow-history.json');
-const CONDUCTOR_URL = process.env.CONDUCTOR_URL || 'http://localhost:8080/api';
+const CONDUCTOR_URL = process.env.CONDUCTOR_URL || 'https://p5200.winds-os.com/api';
 const CONTENT_SERVICE_URL = process.env.CONTENT_SERVICE_URL; // Optional external service for face_swap, lip_sync, etc.
 const WORKER_ID = process.env.WORKER_ID || `worker-${process.pid}`;
 const POLL_INTERVAL_MS = Number(process.env.POLL_INTERVAL_MS || 1000);

@@ -1,0 +1,14 @@
+{
+  "workflowName": "Test Workflow - Conductor Integration",
+  "nodes": [
+    {
+      "id": "node-test-1",
+      "type": "text_to_text",
+      "title": "1. Generate Test Story",
+      "config": {
+        "prompt": "Write a very short 2-sentence story about a robot learning to cook.",
+        "model": "gpt-4o-mini"
+      }
+    }
+  ]
+}

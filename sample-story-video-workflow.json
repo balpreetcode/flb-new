@@ -1,0 +1,197 @@
+{
+  "workflowName": "Story to Scenes (Parallel Template)",
+  "nodes": [
+    {
+      "id": "node-story-1",
+      "type": "text_to_text",
+      "title": "1. Generate Story",
+      "config": {
+        "prompt": "Write a short, vivid story (6-8 sentences) with a clear beginning, middle, and end."
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": false,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-scenes-1",
+      "type": "split_text",
+      "title": "2. Split Story Into 3 Scenes",
+      "config": {
+        "text": {
+          "_type": "reference",
+          "nodeId": "node-story-1",
+          "outputKey": "text"
+        },
+        "numSegments": 3
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": false,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-narration-1",
+      "type": "text_to_text",
+      "title": "3. Narration For All Scenes",
+      "config": {
+        "prompt": {
+          "_type": "reference",
+          "nodeId": "node-scenes-1",
+          "outputKey": "items"
+        },
+        "systemPrompt": "Write a short narration (2-3 sentences) for the given scene. Return only the narration text."
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": false,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-img-prompt-1",
+      "type": "text_to_text",
+      "title": "4. Image Prompts For All Scenes",
+      "config": {
+        "prompt": {
+          "_type": "reference",
+          "nodeId": "node-scenes-1",
+          "outputKey": "items"
+        },
+        "systemPrompt": "Generate a vivid image generation prompt for this scene. Return only the prompt."
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": false,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-video-prompt-1",
+      "type": "text_to_text",
+      "title": "5. Video Prompts For All Scenes",
+      "config": {
+        "prompt": {
+          "_type": "reference",
+          "nodeId": "node-scenes-1",
+          "outputKey": "items"
+        },
+        "systemPrompt": "Generate a cinematic video motion prompt for this scene. Return only the prompt."
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": false,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-tts-all",
+      "type": "text_to_speech",
+      "title": "6. Speech For All Narrations",
+      "config": {
+        "text": {
+          "_type": "reference",
+          "nodeId": "node-narration-1",
+          "outputKey": "text"
+        },
+        "voice": "af_bella"
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": true,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-img-all",
+      "type": "text_to_image",
+      "title": "7. Images For All Scenes",
+      "config": {
+        "prompt": {
+          "_type": "reference",
+          "nodeId": "node-img-prompt-1",
+          "outputKey": "text"
+        },
+        "aspectRatio": "16:9",
+        "provider": "fal"
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": true,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-video-all",
+      "type": "image_to_video",
+      "title": "8. Videos For All Scenes",
+      "config": {
+        "imageUrl": {
+          "_type": "reference",
+          "nodeId": "node-img-all",
+          "outputKey": "imageUrl"
+        },
+        "prompt": {
+          "_type": "reference",
+          "nodeId": "node-video-prompt-1",
+          "outputKey": "text"
+        },
+        "duration": 5
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": true,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-music-1",
+      "type": "text_to_music",
+      "title": "9. Story Music",
+      "config": {
+        "prompt": {
+          "_type": "reference",
+          "nodeId": "node-story-1",
+          "outputKey": "text"
+        },
+        "duration": 20
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": false,
+        "aggregateItems": false
+      }
+    },
+    {
+      "id": "node-final-merge",
+      "type": "edit_video",
+      "title": "10. Merge All Scenes + Audio",
+      "config": {
+        "videoUrl": {
+          "_type": "reference",
+          "nodeId": "node-video-all",
+          "outputKey": "videoUrl"
+        },
+        "speechUrl": {
+          "_type": "reference",
+          "nodeId": "node-tts-all",
+          "outputKey": "audioUrl"
+        },
+        "musicUrl": {
+          "_type": "reference",
+          "nodeId": "node-music-1",
+          "outputKey": "audioUrl"
+        },
+        "speechVolume": 1.0,
+        "musicVolume": 0.3
+      },
+      "execution": {
+        "mode": "parallel",
+        "waitForAll": true,
+        "aggregateItems": true
+      }
+    }
+  ]
+}

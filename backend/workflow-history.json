@@ -1,0 +1,428 @@
+[
+  {
+    "workflowId": "6715290e-e079-11f0-a8f9-3aba69338ee5",
+    "workflowName": "Items Test",
+    "status": "completed",
+    "startTime": "2025-12-24T03:34:07.359Z",
+    "endTime": "2025-12-24T03:34:11.492Z",
+    "durationMs": 4133,
+    "nodeCount": 1,
+    "results": [
+      {
+        "nodeId": "node-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "items": [
+              {
+                "text": "It seems like your message is incomplete. Could you please provide more details or clarify what you would like to know or discuss?",
+                "model": "gpt-4o-mini",
+                "tokens": 130
+              },
+              {
+                "text": "It seems like your message is incomplete. Could you please provide more context or clarify what you would like to know or discuss regarding \"two\"?",
+                "model": "gpt-4o-mini",
+                "tokens": 146
+              }
+            ],
+            "text": [
+              "It seems like your message is incomplete. Could you please provide more details or clarify what you would like to know or discuss?",
+              "It seems like your message is incomplete. Could you please provide more context or clarify what you would like to know or discuss regarding \"two\"?"
+            ],
+            "model": [
+              "gpt-4o-mini",
+              "gpt-4o-mini"
+            ],
+            "tokens": [
+              130,
+              146
+            ],
+            "itemsCount": 2,
+            "nodeType": "text_to_text"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "workflowId": "b5a9152f-dfe4-11f0-a8f9-3aba69338ee5",
+    "workflowName": "Story to Two-Scene Video (Template)",
+    "status": "failed",
+    "startTime": "2025-12-23T09:49:44.178Z",
+    "endTime": "2025-12-23T09:54:05.430Z",
+    "durationMs": 261252,
+    "nodeCount": 14,
+    "results": [
+      {
+        "nodeId": "node-story-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "The sun dipped below the horizon, casting a warm golden glow over the village of Eldridge. In the heart of the village, a young girl named Lila discovered an old, dusty lantern in her grandmother’s attic. As she polished it, a soft, shimmering light began to escape from the lantern's spout, swirling in the air like a playful breeze. Moments later, a gentle spirit emerged, its laughter echoing like chimes in the wind. “Thank you for freeing me,” it said, “but I can grant you only one wish.” \n\nLila thought of the villagers, struggling under a relentless drought, and with a brave heart, she wished for rain. The spirit smiled, and with a flick of its wrist, summoned dark clouds that rolled in like a comforting blanket. Torrential rain poured down, filling the wells and nourishing the fields, while Lila danced joyfully in the downpour. As the spirit vanished, Lila knew her wish had not only quenched the earth but had also united her village in gratitude and celebration, forever reminding them of the magic held within love and selflessness.",
+            "model": "gpt-4o-mini",
+            "tokens": 1050,
+            "nodeType": "text_to_text"
+          }
+        }
+      },
+      {
+        "nodeId": "node-scene-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "Scene 1 opens with the sun sinking beneath the horizon, bathing the village of Eldridge in a warm, golden light that dances off the quaint homes and cobblestone paths. In the attic of her grandmother's house, young Lila stumbles upon an old, dusty lantern, its surface worn with age but holding an air of mystery. As she wipes it clean, a soft, shimmering light begins to escape, swirling gracefully in the air, heralding the arrival of a gentle spirit that will change her life—and the fate of her village—forever.",
+            "model": "gpt-4o-mini",
+            "tokens": 515,
+            "nodeType": "text_to_text"
+          }
+        }
+      },
+      {
+        "nodeId": "node-scene-2",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "As the last echoes of the spirit's laughter faded into the rhythm of the rain, the villagers emerged from their homes, faces alight with hope and wonder. Lila stood at the center of the joyous crowd, her heart swelling with pride; she had not only saved her village but had woven a tapestry of togetherness and gratitude that would last for generations. Under the shimmering, rain-soaked sky, Lila realized that true magic lies not just in wishes granted, but in the courage to put others before oneself.",
+            "model": "gpt-4o-mini",
+            "tokens": 504,
+            "nodeType": "text_to_text"
+          }
+        }
+      },
+      {
+        "nodeId": "node-prep-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "```json\n{\n  \"characters\": {\n    \"Lila\": {\n      \"age\": \"young\",\n      \"traits\": [\"brave\", \"selfless\", \"curious\"]\n    },\n    \"spirit\": {\n      \"traits\": [\"gentle\", \"playful\", \"magical\"]\n    },\n    \"villagers\": {\n      \"traits\": [\"hopeful\", \"grateful\", \"joyful\"]\n    }\n  },\n  \"scene1\": {\n    \"imagePrompt\": \"A warm golden sunset over the village of Eldridge, with quaint homes and cobblestone paths. A young girl named Lila discovering a dusty lantern in an attic filled with memories.\",\n    \"videoPrompt\": \"Lila cleaning the lantern, as soft, shimmering light escapes and swirls in the air, signaling the arrival of a gentle spirit.\"\n  },\n  \"scene2\": {\n    \"imagePrompt\": \"Villagers emerging from their homes under a rain-soaked sky, with expressions of hope and joy. Lila stands in the center, surrounded by a tapestry of togetherness.\",\n    \"videoPrompt\": \"Lila dancing joyfully in the rain, as the spirit fades away, leaving a sense of unity and gratitude among the villagers.\"\n  },\n  \"musicPrompt\": \"A whimsical, uplifting melody that captures the essence of wonder, magic, and the joy of community.\"\n}\n```",
+            "model": "gpt-4o-mini",
+            "tokens": 1109,
+            "nodeType": "text_to_text"
+          }
+        }
+      },
+      {
+        "nodeId": "node-tts-1",
+        "nodeType": "text_to_speech",
+        "success": true,
+        "data": {
+          "type": "text_to_speech",
+          "output": {
+            "audioUrl": "http://localhost:3002/output/speech_openai_1766483414570.mp3",
+            "text": "Scene 1 opens with the sun sinking beneath the horizon, bathing the village of Eldridge in a warm, g",
+            "voice": "af_bella",
+            "nodeType": "text_to_speech"
+          }
+        }
+      },
+      {
+        "nodeId": "node-tts-2",
+        "nodeType": "text_to_speech",
+        "success": true,
+        "data": {
+          "type": "text_to_speech",
+          "output": {
+            "audioUrl": "http://localhost:3002/output/speech_openai_1766483421459.mp3",
+            "text": "As the last echoes of the spirit's laughter faded into the rhythm of the rain, the villagers emerged",
+            "voice": "af_bella",
+            "nodeType": "text_to_speech"
+          }
+        }
+      },
+      {
+        "nodeId": "node-img-1",
+        "nodeType": "text_to_image",
+        "success": true,
+        "data": {
+          "type": "text_to_image",
+          "output": {
+            "imageUrl": "https://v3b.fal.media/files/b/0a877096/UPPS1UeKydRvHnocA4M1w.png",
+            "prompt": "Scene 1 opens with the sun sinking beneath the horizon, bathing the village of Eldridge in a warm, golden light that dances off the quaint homes and cobblestone paths. In the attic of her grandmother's house, young Lila stumbles upon an old, dusty lantern, its surface worn with age but holding an air of mystery. As she wipes it clean, a soft, shimmering light begins to escape, swirling gracefully in the air, heralding the arrival of a gentle spirit that will change her life—and the fate of her village—forever.",
+            "aspectRatio": "16:9",
+            "nodeType": "text_to_image"
+          }
+        }
+      },
+      {
+        "nodeId": "node-img-2",
+        "nodeType": "text_to_image",
+        "success": true,
+        "data": {
+          "type": "text_to_image",
+          "output": {
+            "imageUrl": "https://v3b.fal.media/files/b/0a877096/-yRoWIrZUSqwakZXIX0hO.png",
+            "prompt": "As the last echoes of the spirit's laughter faded into the rhythm of the rain, the villagers emerged from their homes, faces alight with hope and wonder. Lila stood at the center of the joyous crowd, her heart swelling with pride; she had not only saved her village but had woven a tapestry of togetherness and gratitude that would last for generations. Under the shimmering, rain-soaked sky, Lila realized that true magic lies not just in wishes granted, but in the courage to put others before oneself.",
+            "aspectRatio": "16:9",
+            "nodeType": "text_to_image"
+          }
+        }
+      },
+      {
+        "nodeId": "node-vid-1",
+        "nodeType": "image_to_video",
+        "success": true,
+        "data": {
+          "type": "image_to_video",
+          "output": {
+            "videoUrl": "https://v3b.fal.media/files/b/0a877098/sj051EpEfPd4NlcuL-GC4_video.mp4",
+            "sourceImage": "https://v3b.fal.media/files/b/0a877096/UPPS1UeKydRvHnocA4M1w.png",
+            "duration": 5,
+            "nodeType": "image_to_video"
+          }
+        }
+      },
+      {
+        "nodeId": "node-vid-2",
+        "nodeType": "image_to_video",
+        "success": true,
+        "data": {
+          "type": "image_to_video",
+          "output": {
+            "videoUrl": "https://v3b.fal.media/files/b/0a877099/aMEqt07EsMOSIVtWxuzOA_video.mp4",
+            "sourceImage": "https://v3b.fal.media/files/b/0a877096/-yRoWIrZUSqwakZXIX0hO.png",
+            "duration": 5,
+            "nodeType": "image_to_video"
+          }
+        }
+      },
+      {
+        "nodeId": "node-edit-1",
+        "nodeType": "edit_video",
+        "success": false
+      },
+      {
+        "nodeId": "node-edit-1",
+        "nodeType": "edit_video",
+        "success": false
+      },
+      {
+        "nodeId": "node-edit-1",
+        "nodeType": "edit_video",
+        "success": false
+      },
+      {
+        "nodeId": "node-edit-1",
+        "nodeType": "edit_video",
+        "success": false
+      }
+    ]
+  },
+  {
+    "workflowId": "b03aae4b-dfd1-11f0-a8f9-3aba69338ee5",
+    "workflowName": "Untitled Workflow",
+    "status": "completed",
+    "startTime": "2025-12-23T07:33:34.628Z",
+    "endTime": "2025-12-23T07:33:46.432Z",
+    "durationMs": 11804,
+    "nodeCount": 3,
+    "results": [
+      {
+        "nodeId": "node-1766411911919-vepzrnmnl",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "It seems like your message might have been cut off or is unclear. How can I assist you today?",
+            "model": "gpt-4o-mini",
+            "tokens": 93,
+            "nodeType": "text_to_text"
+          }
+        }
+      },
+      {
+        "nodeId": "node-1766411914466-gs3j49r6h",
+        "nodeType": "text_to_image",
+        "success": true,
+        "data": {
+          "type": "text_to_image",
+          "output": {
+            "imageUrl": "https://v3b.fal.media/files/b/0a876d61/Tv5VWCN7K0v1RTmeky75n.png",
+            "prompt": "asda",
+            "aspectRatio": "16:9",
+            "nodeType": "text_to_image"
+          }
+        }
+      },
+      {
+        "nodeId": "node-1766411917497-wxbd4u4uo",
+        "nodeType": "text_to_speech",
+        "success": true,
+        "data": {
+          "type": "text_to_speech",
+          "output": {
+            "audioUrl": "http://localhost:3002/output/speech_openai_1766475226424.mp3",
+            "text": "asdsaasd",
+            "voice": "af_bella",
+            "nodeType": "text_to_speech"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "workflowId": "1fe7acf7-dfca-11f0-a8f9-3aba69338ee5",
+    "workflowName": "Test Workflow - Conductor Integration",
+    "status": "completed",
+    "startTime": "2025-12-23T06:39:26.015Z",
+    "endTime": "2025-12-23T06:39:28.149Z",
+    "durationMs": 2134,
+    "nodeCount": 1,
+    "results": [
+      {
+        "nodeId": "node-test-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "In a cluttered kitchen, a curious robot meticulously followed a recipe, its metallic hands fumbling with ingredients. After a few sparks and a cloud of flour, it proudly presented a perfectly burnt loaf, declaring, \"I call it 'Crispy Delight'!\"",
+            "model": "gpt-4o-mini",
+            "tokens": 244,
+            "nodeType": "text_to_text"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "workflowId": "6939ffa3-dfc7-11f0-a8f9-3aba69338ee5",
+    "workflowName": "Test Workflow - Conductor Integration",
+    "status": "completed",
+    "startTime": "2025-12-23T06:20:00.538Z",
+    "endTime": "2025-12-23T06:20:03.386Z",
+    "durationMs": 2848,
+    "nodeCount": 1,
+    "results": [
+      {
+        "nodeId": "node-test-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "In a small kitchen, a curious robot named Chef-Bot diligently followed a recipe, its metallic hands clumsily mixing ingredients. With each failed attempt, the aroma of burnt toast filled the air, but Chef-Bot's determination only grew stronger as it vowed to master the art of cooking.",
+            "model": "gpt-4o-mini",
+            "tokens": 285,
+            "nodeType": "text_to_text"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "workflowId": "da5fd3f1-dfc5-11f0-a8f9-3aba69338ee5",
+    "workflowName": "Test Workflow - Conductor Integration",
+    "status": "completed",
+    "startTime": "2025-12-23T06:08:51.375Z",
+    "endTime": "2025-12-23T06:08:54.039Z",
+    "durationMs": 2664,
+    "nodeCount": 1,
+    "results": [
+      {
+        "nodeId": "node-test-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "In a cluttered kitchen, a curious robot meticulously followed a recipe for chocolate chip cookies, its sensors whirring with excitement. As the sweet aroma filled the air, it realized that cooking was not just about ingredients, but also about the joy of sharing.",
+            "model": "gpt-4o-mini",
+            "tokens": 263,
+            "nodeType": "text_to_text"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "workflowId": "608e88e9-7a1d-4dea-bd32-3c18b75d17aa",
+    "workflowName": "Multi-Node Test - Image + Video",
+    "status": "failed",
+    "startTime": "2025-12-23T05:57:04.045Z",
+    "endTime": "2025-12-23T05:59:01.538Z",
+    "durationMs": 117493,
+    "nodeCount": 2,
+    "results": [
+      {
+        "nodeId": "node-img-1",
+        "nodeType": "text_to_image",
+        "success": true,
+        "data": {
+          "type": "text_to_image",
+          "output": {
+            "imageUrl": "https://v3b.fal.media/files/b/0a876b1e/RvlLjJ8H-7j9O-rB4VgZH.png",
+            "prompt": "A beautiful sunset over mountains",
+            "aspectRatio": "16:9",
+            "nodeType": "text_to_image"
+          }
+        }
+      },
+      {
+        "nodeId": "node-vid-1",
+        "nodeType": "image_to_video",
+        "success": false,
+        "error": "Request failed with status code 422"
+      }
+    ]
+  },
+  {
+    "workflowId": "b0f60424-66d5-4fa1-94d1-2ade42a8cf77",
+    "workflowName": "Test Workflow - Conductor Integration",
+    "status": "completed",
+    "startTime": "2025-12-23T05:56:38.165Z",
+    "endTime": "2025-12-23T05:56:40.781Z",
+    "durationMs": 2616,
+    "nodeCount": 1,
+    "results": [
+      {
+        "nodeId": "node-test-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "In a small kitchen, a curious robot meticulously followed a recipe, its metal hands awkwardly mixing ingredients. After a few mishaps, it proudly presented a perfectly baked cake, earning a delighted cheer from its human companion.",
+            "model": "gpt-4o-mini",
+            "tokens": 231,
+            "nodeType": "text_to_text"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "workflowId": "d9b4d9e7-f62e-46f2-baae-85be086337f4",
+    "workflowName": "History Test 2",
+    "status": "completed",
+    "startTime": "2025-12-23T04:21:44.975Z",
+    "endTime": "2025-12-23T04:21:56.839Z",
+    "durationMs": 11864,
+    "nodeCount": 1,
+    "results": [
+      {
+        "nodeId": "node-1",
+        "nodeType": "text_to_text",
+        "success": true,
+        "data": {
+          "type": "text_to_text",
+          "output": {
+            "text": "In a quaint village nestled between rolling hills and whispering woods, there lived an old clockmaker named Elara. Her little shop, filled with the soft ticking of countless clocks, was a treasure trove of timepieces—some grand and ornate, others simple and humble. Each clock held a story, and Elara was the keeper of those tales.\n\nOne rainy afternoon, as the raindrops danced on the shop’s window, a peculiar customer entered. He was a young boy named Finn, with wild hair and eyes full of wonder. In his hands, he clutched a broken pocket watch, its silver casing tarnished and its hands forever frozen at two-thirty.\n\n“My grandfather gave me this,” Finn said, his voice trembling with hope. “Can you fix it?”\n\nElara took the watch and examined it closely. “This is no ordinary timepiece,” she said, a spark of recognition lighting her eyes. “It holds the memories of your grandfather’s adventures.”\n\nFinn’s curiosity piqued. “What kind of adventures?”\n\nWith a gentle smile, Elara began to wind the watch, and as she did, the shop transformed. The walls faded, replaced by vibrant scenes of distant lands and soaring mountains. Finn found himself standing beside his grandfather, a young man then, scaling the peaks of a snowy mountain, laughter echoing in the crisp air.\n\nIn another moment, they were sailing across a shimmering sea, the sun setting in brilliant colors as they chased dolphins and shared stories under a blanket of stars.\n\nElara continued to wind the watch, and Finn’s heart soared with each memory that unfolded. He saw his grandfather planting trees in a forgotten forest, teaching him to fish in a tranquil river, and dancing at a festival under a canopy of lanterns.\n\nFinally, the watch clicked, and the visions faded, leaving Finn breathless. “Can it do that again?” he asked, eyes wide with excitement.\n\nElara chuckled softly. “Not just by winding it. The magic lies in remembering. Your grandfather’s adventures live on in you, Finn. Whenever you share a story or create a memory of your own, you wind the watch of your life.”\n\nWith the watch now repaired, Finn clutched it tightly, understanding that it wasn’t just a timepiece but a vessel for love, adventure, and legacy. He thanked Elara profusely and promised to create stories of his own, knowing that while time may move forward, memories would always keep the past alive.\n\nAs he left the shop, the rain had stopped, and a rainbow arched across the sky, a sign of new beginnings. Elara watched him go, a smile dancing on her lips, knowing that the heart of a clockmaker beats not just in gears and springs, but in the stories that time allows us to tell.",
+            "model": "gpt-4o-mini",
+            "tokens": 2639
+          }
+        }
+      }
+    ]
+  }
+]

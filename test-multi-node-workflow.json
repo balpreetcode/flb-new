@@ -1,0 +1,29 @@
+{
+  "workflowName": "Multi-Node Test - Image + Video",
+  "nodes": [
+    {
+      "id": "node-img-1",
+      "type": "text_to_image",
+      "title": "1. Generate Landscape Image",
+      "config": {
+        "prompt": "A beautiful sunset over mountains",
+        "aspectRatio": "16:9",
+        "provider": "fal"
+      }
+    },
+    {
+      "id": "node-vid-1",
+      "type": "image_to_video",
+      "title": "2. Animate the Image",
+      "config": {
+        "imageUrl": {
+          "_type": "reference",
+          "nodeId": "node-img-1",
+          "outputKey": "imageUrl"
+        },
+        "prompt": "gentle camera pan with clouds moving",
+        "duration": 5
+      }
+    }
+  ]
+}

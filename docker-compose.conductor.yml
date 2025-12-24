@@ -1,0 +1,19 @@
+services:
+  conductor-server:
+    image: conductoross/conductor-standalone:3.15.0
+    container_name: conductor-server
+    ports:
+      - "8080:8080"
+      - "5000:5000"
+    healthcheck:
+      test: ["CMD", "curl", "-I", "-XGET", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+    volumes:
+      - conductor_data:/app/database
+
+volumes:
+  conductor_data:
